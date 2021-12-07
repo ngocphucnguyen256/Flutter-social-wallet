@@ -22,6 +22,14 @@ class Menu extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text("Dak",
+                          style: TextStyle(
+                              fontSize: 30,
+                              fontWeight: FontWeight.bold,
+                              letterSpacing: 3)),
+                    ),
                     MaterialButton(
                       onPressed: () {},
                       shape: RoundedRectangleBorder(
