@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application/components/menu.dart';
+import 'package:flutter_application/components/transaction.dart';
 import 'package:flutter_application/main.dart';
+import 'package:flutter_application/components/middle_content.dart';
 
 class App extends StatelessWidget {
   const App({Key? key}) : super(key: key);
@@ -18,21 +20,11 @@ class App extends StatelessWidget {
           ),
           Expanded(
             flex: 6,
-            child: Container(
-              color: Colors.red,
-              child: Center(
-                child: Text('Hello World'),
-              ),
-            ),
+            child: MiddleContent(),
           ),
           Expanded(
             flex: 3,
-            child: Container(
-              color: Colors.green,
-              child: Center(
-                child: Text('Hello World'),
-              ),
-            ),
+            child: Transactions(),
           ),
         ],
       ),

@@ -5,6 +5,7 @@ import './components/app.dart';
 
 const Color bgColor = Color(0xFF21252a);
 const Color subBgColor = Color(0xFF343b45);
+const Color lightBgColor = Color(0xFF3f4a59);
 
 void main() {
   runApp(const MyApp());

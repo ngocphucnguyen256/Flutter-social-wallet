@@ -24,7 +24,7 @@ class Menu extends StatelessWidget {
                   children: <Widget>[
                     Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: Text("Dak",
+                      child: Text("Dak".toUpperCase(),
                           style: TextStyle(
                               fontSize: 30,
                               fontWeight: FontWeight.bold,
