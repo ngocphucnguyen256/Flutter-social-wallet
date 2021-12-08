@@ -17,44 +17,63 @@ class Send extends StatelessWidget {
           color: subBgColor,
         ),
         child: Padding(
-          padding: const EdgeInsets.all(20.0),
+          padding: const EdgeInsets.all(25.0),
           child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                Expanded(
-                    flex: 2,
+                Container(
+                    height: 30.0,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10.0),
+                      color: bgColor,
+                    ),
                     child: Padding(
                       padding: const EdgeInsets.all(1.0),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text('Send',
-                              style: TextStyle(
-                                  fontSize: fontSize,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white)),
-                          SizedBox(
-                            width: 15,
+                          Expanded(
+                            child: Container(
+                              alignment: Alignment.center,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10.0),
+                                color: lightBgColor,
+                              ),
+                              child: Text('Send',
+                                  style: TextStyle(
+                                      fontSize: fontSize,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white)),
+                            ),
                           ),
-                          Text('Receive',
-                              style: TextStyle(
-                                  fontSize: fontSize,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white)),
+                          Expanded(
+                            child: Container(
+                              alignment: Alignment.center,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10.0),
+                                color: bgColor,
+                              ),
+                              child: Text('Receive',
+                                  style: TextStyle(
+                                      fontSize: fontSize,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white)),
+                            ),
+                          ),
                         ],
                       ),
                     )),
-                Expanded(
-                  flex: 2,
+                Container(
                   child: Container(
+                    padding: EdgeInsets.all(6.0),
                     width: double.infinity,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10.0),
                       color: lightBgColor,
                     ),
                     child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text('ABCVCVVCVCVC23123V1',
                             style: TextStyle(
@@ -72,28 +91,26 @@ class Send extends StatelessWidget {
                     ),
                   ),
                 ),
-                Expanded(
-                    flex: 2,
+                Container(
                     child: Container(
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10.0),
-                        color: lightBgColor,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10.0),
+                    color: lightBgColor,
+                  ),
+                  alignment: Alignment.centerLeft,
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      "Dak Amount",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: fontSize,
                       ),
-                      alignment: Alignment.centerLeft,
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Text(
-                          "Dak Amount",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: fontSize,
-                          ),
-                        ),
-                      ),
-                    )),
-                Expanded(
-                  flex: 3,
+                    ),
+                  ),
+                )),
+                Container(
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.end,
                     mainAxisAlignment: MainAxisAlignment.end,
@@ -137,7 +154,7 @@ class Send extends StatelessWidget {
                             colors: <Color>[
                               Colors.green,
                               Colors.blue,
-                              Colors.pink
+                              Colors.purple,
                             ],
                           ),
                           onPressed: () {}),

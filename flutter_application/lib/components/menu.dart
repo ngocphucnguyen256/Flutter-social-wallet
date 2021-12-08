@@ -7,7 +7,7 @@ class Menu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.all(20),
+      margin: EdgeInsets.all(18),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10.0),
         color: subBgColor,
@@ -35,7 +35,7 @@ class Menu extends StatelessWidget {
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10.0)),
                       child: Padding(
-                        padding: const EdgeInsets.only(top: 8.0, bottom: 8.0),
+                        padding: const EdgeInsets.only(top: 10.0, bottom: 10.0),
                         child: Row(
                           children: <Widget>[
                             Icon(
@@ -61,7 +61,7 @@ class Menu extends StatelessWidget {
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10.0)),
                       child: Padding(
-                        padding: const EdgeInsets.only(top: 8.0, bottom: 8.0),
+                        padding: const EdgeInsets.only(top: 10.0, bottom: 10.0),
                         child: Row(
                           children: <Widget>[
                             Icon(Icons.add_circle, color: Colors.white),
@@ -84,7 +84,7 @@ class Menu extends StatelessWidget {
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10.0)),
                       child: Padding(
-                        padding: const EdgeInsets.only(top: 8.0, bottom: 8.0),
+                        padding: const EdgeInsets.only(top: 10.0, bottom: 10.0),
                         child: Row(
                           children: <Widget>[
                             Icon(Icons.help, color: Colors.white),
@@ -112,9 +112,9 @@ class Menu extends StatelessWidget {
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10.0)),
                   child: Padding(
-                    padding: const EdgeInsets.only(top: 8.0, bottom: 8.0),
+                    padding: const EdgeInsets.only(top: 10.0, bottom: 10.0),
                     child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.start,
                       children: <Widget>[
                         Icon(
                           Icons.logout,

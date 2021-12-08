@@ -41,7 +41,7 @@ class Download extends StatelessWidget {
                           colors: <Color>[
                             Colors.green,
                             Colors.blue,
-                            Colors.pink
+                            Colors.purple,
                           ],
                         ),
                         onPressed: () {}),

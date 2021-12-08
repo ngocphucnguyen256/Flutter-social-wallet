@@ -13,7 +13,7 @@ class MiddleContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.only(bottom: 8.0, right: 18.0),
       child: Container(
           child: Column(
         children: [
@@ -23,7 +23,7 @@ class MiddleContent extends StatelessWidget {
               child: Row(
                 children: [
                   Expanded(
-                    flex: 6,
+                    flex: 7,
                     child: Container(
                       child: Row(children: [
                         MaterialButton(
@@ -88,10 +88,10 @@ class MiddleContent extends StatelessWidget {
                     ),
                   ),
                   Expanded(
-                    flex: 4,
+                    flex: 3,
                     child: Container(
                       child: RaisedGradientButton(
-                          width: 70.0,
+                          width: 40.0,
                           key: Key('button'),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -113,7 +113,7 @@ class MiddleContent extends StatelessWidget {
                             colors: <Color>[
                               Colors.green,
                               Colors.blue,
-                              Colors.pink
+                              Colors.purple,
                             ],
                           ),
                           onPressed: () {}),
