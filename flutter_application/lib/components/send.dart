@@ -115,6 +115,7 @@ class Send extends StatelessWidget {
                       ),
                       RaisedGradientButton(
                           width: 100.0,
+                          height: 40.0,
                           key: Key('button'),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,

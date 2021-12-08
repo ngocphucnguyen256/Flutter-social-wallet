@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application/components/balance.dart';
+import 'package:flutter_application/components/download.dart';
 import 'package:flutter_application/components/help.dart';
+import 'package:flutter_application/components/last_pay.dart';
 import 'package:flutter_application/main.dart';
 import 'package:flutter_application/components/gradient_button.dart';
 import 'package:flutter_application/components/send.dart';
@@ -147,23 +149,15 @@ class MiddleContent extends StatelessWidget {
                     Expanded(
                         child: Row(children: [
                       Expanded(
-                        child: Container(
-                          color: Colors.blue,
-                        ),
+                        child: LastPay(),
                       ),
                       Expanded(
-                        child: Container(
-                          color: Colors.green,
-                        ),
+                        child: LastPay(),
                       ),
                     ]))
                   ]),
                 ),
-                Expanded(
-                    flex: 1,
-                    child: Container(
-                      color: Colors.white,
-                    )),
+                Expanded(flex: 1, child: Download()),
               ])),
         ],
       )),

@@ -20,7 +20,7 @@ class RaisedGradientButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: width,
-      height: 40.0,
+      height: height,
       decoration: BoxDecoration(
           gradient: gradient,
           borderRadius: BorderRadius.circular(10.0),
