@@ -30,46 +30,71 @@ class TransactionCard extends StatelessWidget {
         ),
         child: Padding(
           padding: const EdgeInsets.all(10.0),
-          child: Row(children: <Widget>[
-            Container(
-              width: 40.0,
-              height: 40.0,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10.0),
-                color: isSend ? Colors.green : Colors.purple,
-              ),
-              child: Icon(
-                Icons.arrow_back,
-                color: Colors.white,
-              ),
-            ),
-            Expanded(
-                child: Padding(
-              padding: const EdgeInsets.all(1.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Container(
-                    child: Text(adress.toString(),
-                        style: TextStyle(
-                            fontSize: fontSize,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white)),
+          child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                    width: 40.0,
+                    height: 40.0,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10.0),
+                      color: isSend ? Colors.green : Colors.purple,
+                    ),
+                    child: Icon(
+                      isSend ? Icons.arrow_back : Icons.arrow_forward,
+                      color: Colors.white,
+                    ),
                   ),
-                  SizedBox(
-                    width: 15,
+                ),
+                Container(
+                    child: Padding(
+                  padding: const EdgeInsets.all(1.0),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        child: Text(adress.toString() + "...",
+                            style: TextStyle(
+                                fontSize: fontSize,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white)),
+                      ),
+                      SizedBox(
+                        height: 4.0,
+                      ),
+                      Text(isSend ? "SENT" : "RECEIVED",
+                          style: TextStyle(
+                              fontSize: fontSize,
+                              fontWeight: FontWeight.bold,
+                              color: isSend ? Colors.green : Colors.purple)),
+                    ],
                   ),
-                  Container(
-                    child: Text(amount.toString() + " DAK",
-                        style: TextStyle(
-                            fontSize: fontSize,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white)),
+                )),
+                Container(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        child: Text(amount.toString() + " DAK",
+                            style: TextStyle(
+                                fontSize: fontSize,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white)),
+                      ),
+                      SizedBox(
+                        height: 4.0,
+                      ),
+                      Text(usd.toString() + " USD",
+                          style: TextStyle(
+                              fontSize: fontSize,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white)),
+                    ],
                   ),
-                ],
-              ),
-            )),
-          ]),
+                ),
+              ]),
         ),
       ),
     );

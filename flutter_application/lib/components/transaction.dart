@@ -47,8 +47,32 @@ class Transactions extends StatelessWidget {
                               fontSize: 20,
                               fontWeight: FontWeight.bold,
                               color: Colors.white)),
-                      Text('Viewall',
-                          style: TextStyle(fontSize: 13, color: Colors.grey)),
+                      MaterialButton(
+                        color: subBgColor,
+                        onPressed: () {},
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10.0)),
+                        child: Padding(
+                          padding:
+                              const EdgeInsets.only(top: 10.0, bottom: 10.0),
+                          child: Row(
+                            children: <Widget>[
+                              Text('View all',
+                                  style: TextStyle(
+                                      fontSize: 13, color: Colors.grey)),
+                              SizedBox(
+                                width: 10,
+                              ),
+                              Icon(
+                                Icons.arrow_forward_ios,
+                                color: Colors.grey,
+                                size: 12.0,
+                              ),
+                            ],
+                          ),
+                        ),
+                        hoverColor: Colors.blue,
+                      ),
                     ],
                   )),
               Expanded(
