@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import './app.dart';
+import '../helper/responsive.dart';
+import './screens/desktop.dart';
+import './screens/mobile.dart';
+import './screens/tablet.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +20,14 @@ class MyApp extends StatelessWidget {
         brightness: Brightness.dark,
         primaryColor: Colors.lightBlue[800],
       ),
-      home: App(),
+      home: Container(
+        child: Responsive(
+          key: const Key('App'),
+          mobile: Mobile(),
+          tablet: Tablet(),
+          desktop: Desktop(),
+        ),
+      ),
     );
   }
 }

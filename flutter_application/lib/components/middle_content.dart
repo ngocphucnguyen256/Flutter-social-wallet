@@ -3,7 +3,6 @@ import 'package:flutter_application/components/balance.dart';
 import 'package:flutter_application/components/download.dart';
 import 'package:flutter_application/components/help.dart';
 import 'package:flutter_application/components/last_pay.dart';
-import 'package:flutter_application/main.dart';
 import 'package:flutter_application/components/gradient_button.dart';
 import 'package:flutter_application/components/send.dart';
 
