@@ -32,13 +32,12 @@ class _MobileState extends State<Mobile> {
           child: Row(
             children: <Widget>[
               Expanded(
-                flex: 8,
                 child: MiddleContent(),
               ),
-              Expanded(
-                flex: 2,
-                child: Transactions(),
-              ),
+              // Expanded(
+              //   flex: 2,
+              //   child: Transactions(),
+              // ),
             ],
           ),
         ),
