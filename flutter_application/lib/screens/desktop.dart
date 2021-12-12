@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application/components/menu.dart';
 import 'package:flutter_application/components/transaction.dart';
-import 'package:flutter_application/main.dart';
 import 'package:flutter_application/components/middle_content.dart';
+import '../constants.dart';
 
-class App extends StatelessWidget {
-  const App({Key? key}) : super(key: key);
+class Desktop extends StatelessWidget {
+  const Desktop({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    var flex2 = 1.5;
     return Container(
       color: bgColor,
       child: Row(

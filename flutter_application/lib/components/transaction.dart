@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application/components/transaction_card.dart';
 import 'package:flutter_application/main.dart';
+import '../constants.dart';
 
 class TransactionData {
   String? adress;
