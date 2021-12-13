@@ -54,21 +54,28 @@ class MiddleContent extends StatelessWidget {
                                 ),
                                 hoverColor: Colors.blue,
                               ),
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text(
-                                    'Master Account',
-                                    style: TextStyle(
-                                        fontSize: 15, color: Colors.grey),
-                                  ),
-                                  Text(
-                                    'ABCVCVVCVCVC23123V1',
-                                    style: TextStyle(
-                                        fontSize: 20, color: Colors.white),
-                                  ),
-                                ],
+                              Container(
+                                constraints: screenWidth < 650
+                                    ? BoxConstraints(
+                                        maxWidth: screenWidth * 0.3)
+                                    : BoxConstraints(maxWidth: screenWidth),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      'Master Account',
+                                      style: TextStyle(
+                                          fontSize: 15, color: Colors.grey),
+                                    ),
+                                    Text(
+                                      'ABCVCVVCVCVC23123V1',
+                                      overflow: TextOverflow.ellipsis,
+                                      style: TextStyle(
+                                          fontSize: 20, color: Colors.white),
+                                    ),
+                                  ],
+                                ),
                               ),
                               MaterialButton(
                                 onPressed: () {},
@@ -84,7 +91,7 @@ class MiddleContent extends StatelessWidget {
                                         color: Colors.white,
                                       ),
                                       SizedBox(
-                                        width: 10,
+                                        width: screenWidth * 0.1,
                                       ),
                                     ],
                                   ),
@@ -95,9 +102,12 @@ class MiddleContent extends StatelessWidget {
                           ),
                         ),
                         Flexible(
-                          flex: 3,
+                          flex: 1,
                           child: Container(
                             child: RaisedGradientButton(
+                                width: screenWidth < 650
+                                    ? screenWidth * 0.2
+                                    : 100.0,
                                 key: Key('button'),
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
@@ -106,13 +116,24 @@ class MiddleContent extends StatelessWidget {
                                       Icons.qr_code,
                                       color: Colors.white,
                                     ),
-                                    SizedBox(
-                                      width: 10,
-                                    ),
-                                    Text(
-                                      'Generate QR',
-                                      style: TextStyle(color: Colors.white),
-                                    )
+                                    screenWidth >= 650
+                                        ? Row(
+                                            children: [
+                                              SizedBox(
+                                                width: 10,
+                                              ),
+                                              Text(
+                                                'Generate QR',
+                                                style: TextStyle(
+                                                    color: Colors.white),
+                                              ),
+                                            ],
+                                          )
+                                        : (Text(
+                                            '',
+                                            style:
+                                                TextStyle(color: Colors.white),
+                                          )),
                                   ],
                                 ),
                                 gradient: LinearGradient(
@@ -173,25 +194,66 @@ class MiddleContent extends StatelessWidget {
                       ),
                     )),
                 Container(
-                    constraints: BoxConstraints(maxHeight: screenHeight * 0.4),
-                    child: Row(children: [
-                      Flexible(
-                        flex: 1,
-                        child: Column(children: [
-                          Flexible(child: Help()),
-                          Flexible(
-                              child: Row(children: [
+                    constraints: screenWidth >= 650
+                        ? BoxConstraints(maxHeight: screenHeight * 0.4)
+                        : BoxConstraints(maxHeight: screenHeight),
+                    child: Responsive(
+                      key: Key('help pay download'),
+                      mobile: Column(children: [
+                        Flexible(
+                          flex: 1,
+                          child: Column(children: [
+                            Flexible(child: Help()),
                             Flexible(
-                              child: LastPay(),
-                            ),
+                                child: Row(children: [
+                              Flexible(
+                                child: LastPay(),
+                              ),
+                              Flexible(
+                                child: LastPay(),
+                              ),
+                            ]))
+                          ]),
+                        ),
+                        Flexible(flex: 1, child: Download()),
+                      ]),
+                      tablet: Row(children: [
+                        Flexible(
+                          flex: 1,
+                          child: Column(children: [
+                            Flexible(child: Help()),
                             Flexible(
-                              child: LastPay(),
-                            ),
-                          ]))
-                        ]),
-                      ),
-                      Flexible(flex: 1, child: Download()),
-                    ])),
+                                child: Row(children: [
+                              Flexible(
+                                child: LastPay(),
+                              ),
+                              Flexible(
+                                child: LastPay(),
+                              ),
+                            ]))
+                          ]),
+                        ),
+                        Flexible(flex: 1, child: Download()),
+                      ]),
+                      desktop: Row(children: [
+                        Flexible(
+                          flex: 1,
+                          child: Column(children: [
+                            Flexible(child: Help()),
+                            Flexible(
+                                child: Row(children: [
+                              Flexible(
+                                child: LastPay(),
+                              ),
+                              Flexible(
+                                child: LastPay(),
+                              ),
+                            ]))
+                          ]),
+                        ),
+                        Flexible(flex: 1, child: Download()),
+                      ]),
+                    )),
               ],
             );
           },

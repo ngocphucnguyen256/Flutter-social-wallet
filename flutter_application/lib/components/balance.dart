@@ -7,6 +7,8 @@ class Balance extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Container(
@@ -25,9 +27,9 @@ class Balance extends StatelessWidget {
                         fontSize: headingsFonsize,
                         fontWeight: FontWeight.bold,
                         color: Colors.white)),
-                SizedBox(
-                  height: 15,
-                ),
+                // SizedBox(
+                //   height: screenWidth * 0.15,
+                // ),
                 Text('Total',
                     style: TextStyle(fontSize: 13, color: Colors.grey)),
                 Row(
