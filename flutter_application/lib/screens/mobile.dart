@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application/components/menu.dart';
 import 'package:flutter_application/components/middle_content.dart';
-import 'package:flutter_application/components/transaction.dart';
-
 import '../constants.dart';
 
 class Mobile extends StatefulWidget {

@@ -4,14 +4,14 @@ import '../screens/desktop.dart';
 import '../screens/mobile.dart';
 import '../screens/tablet.dart';
 
-class Dashboard extends StatelessWidget {
-  const Dashboard({Key? key}) : super(key: key);
+class Setting extends StatelessWidget {
+  const Setting({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
       child: Responsive(
-        key: const Key('Dashboard'),
+        key: const Key('Setting'),
         mobile: Mobile(),
         tablet: Tablet(),
         desktop: Desktop(),

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application/main.dart';
+import 'package:flutter_application/model/navigation_item.dart';
+import 'package:flutter_application/provider/navigation_provider.dart';
+import 'package:provider/provider.dart';
 import '../constants.dart';
 
 class Menu extends StatelessWidget {
@@ -30,113 +32,64 @@ class Menu extends StatelessWidget {
                               fontWeight: FontWeight.bold,
                               letterSpacing: 3)),
                     ),
-                    MaterialButton(
-                      onPressed: () {},
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10.0)),
-                      child: Padding(
-                        padding: const EdgeInsets.only(top: 10.0, bottom: 10.0),
-                        child: Row(
-                          children: <Widget>[
-                            Icon(
-                              Icons.home,
-                              color: Colors.white,
-                            ),
-                            SizedBox(
-                              width: 10,
-                            ),
-                            Text(
-                              'Dashboard',
-                              style: TextStyle(
-                                fontSize: 20,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      hoverColor: Colors.blue,
-                    ),
-                    MaterialButton(
-                      onPressed: () {},
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10.0)),
-                      child: Padding(
-                        padding: const EdgeInsets.only(top: 10.0, bottom: 10.0),
-                        child: Row(
-                          children: <Widget>[
-                            Icon(Icons.add_circle, color: Colors.white),
-                            SizedBox(
-                              width: 10,
-                            ),
-                            Text(
-                              'Transactions',
-                              style: TextStyle(
-                                fontSize: 20,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      hoverColor: Colors.blue,
-                    ),
-                    MaterialButton(
-                      onPressed: () {},
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10.0)),
-                      child: Padding(
-                        padding: const EdgeInsets.only(top: 10.0, bottom: 10.0),
-                        child: Row(
-                          children: <Widget>[
-                            Icon(Icons.help, color: Colors.white),
-                            SizedBox(
-                              width: 10,
-                            ),
-                            Text(
-                              'Help',
-                              style: TextStyle(
-                                fontSize: 20,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      hoverColor: Colors.blue,
-                    ),
+                    const SizedBox(height: 16),
+                    buildMenuItem(context,
+                        item: NavigationItem.dashboard,
+                        text: "Dashboard",
+                        icon: Icons.home),
+                    const SizedBox(height: 16),
+                    buildMenuItem(context,
+                        item: NavigationItem.transaction,
+                        text: "Transaction",
+                        icon: Icons.account_balance_wallet),
+                    const SizedBox(height: 16),
+                    buildMenuItem(context,
+                        item: NavigationItem.help,
+                        text: "Help",
+                        icon: Icons.help),
                   ],
                 ),
               ),
               Container(
                 width: double.infinity,
-                child: MaterialButton(
-                  onPressed: () {},
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10.0)),
-                  child: Padding(
-                    padding: const EdgeInsets.only(top: 10.0, bottom: 10.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: <Widget>[
-                        Icon(
-                          Icons.logout,
-                          color: Colors.white,
-                        ),
-                        SizedBox(
-                          width: 10,
-                        ),
-                        Text(
-                          'Logout',
-                          style: TextStyle(
-                            fontSize: 20,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  hoverColor: Colors.blue,
-                ),
+                child: buildMenuItem(context,
+                    item: NavigationItem.dashboard,
+                    text: "Logout",
+                    icon: Icons.login),
               ),
             ]),
       ),
     );
+  }
+
+  Widget buildMenuItem(
+    BuildContext context, {
+    required NavigationItem item,
+    required String text,
+    required IconData icon,
+  }) {
+    final provider = Provider.of<NavigationProvider>(context);
+    final currentItem = provider.navigationItem;
+    final isSelected = item == currentItem;
+
+    // final color = isSelected ? Colors.white : lightBgColor;
+    final color = Colors.white;
+
+    return Material(
+      borderRadius: BorderRadius.circular(10.0),
+      color: lightBgColor,
+      child: ListTile(
+        selected: isSelected,
+        selectedTileColor: Colors.blue,
+        leading: Icon(icon, color: color),
+        title: Text(text, style: TextStyle(color: color, fontSize: 16)),
+        onTap: () => selectItem(context, item),
+      ),
+    );
+  }
+
+  void selectItem(BuildContext context, NavigationItem item) {
+    final provider = Provider.of<NavigationProvider>(context, listen: false);
+    provider.setNavigationItem(item);
   }
 }

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application/main.dart';
 import '../constants.dart';
 
 class Balance extends StatelessWidget {

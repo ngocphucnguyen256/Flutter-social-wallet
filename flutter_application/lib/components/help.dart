@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application/components/gradient_button.dart';
-import 'package:flutter_application/main.dart';
 import '../constants.dart';
-
-import '../main.dart';
 
 class Help extends StatelessWidget {
   const Help({Key? key}) : super(key: key);

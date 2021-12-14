@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application/components/gradient_button.dart';
-import 'package:flutter_application/main.dart';
-import '../main.dart';
 import '../constants.dart';
 
 class Send extends StatelessWidget {
