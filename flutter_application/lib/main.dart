@@ -4,11 +4,11 @@ import 'package:flutter_application/pages/help_page.dart';
 import 'package:flutter_application/pages/login.dart';
 import 'package:flutter_application/pages/newsfeed.dart';
 import 'package:flutter_application/pages/setting.dart';
+import 'package:flutter_application/pages/transaction_page.dart';
 import 'package:provider/provider.dart';
 import './model/navigation_item.dart';
 import './provider/navigation_provider.dart';
 import './pages/dash_board.dart';
-import 'components/transaction.dart';
 
 void main() {
   runApp(const MyApp());
@@ -50,7 +50,7 @@ class _MainPageState extends State<MainPage> {
       case NavigationItem.dashboard:
         return Dashboard();
       case NavigationItem.transaction:
-        return Transactions();
+        return TransactionPage();
       case NavigationItem.newsfeed:
         return Newsfeed();
       case NavigationItem.help:
@@ -59,6 +59,8 @@ class _MainPageState extends State<MainPage> {
         return Login();
       case NavigationItem.settings:
         return Setting();
+      default:
+        return Dashboard();
     }
   }
 }

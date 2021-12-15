@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import '../helper/responsive.dart';
-import '../screens/desktop.dart';
-import '../screens/mobile.dart';
-import '../screens/tablet.dart';
+import '../screens/newsfeed_desktop.dart';
+import '../screens/newsfeed_mobile.dart';
+import '../screens/newsfeed_tablet.dart';
 
 class Newsfeed extends StatelessWidget {
   const Newsfeed({Key? key}) : super(key: key);
@@ -10,13 +10,12 @@ class Newsfeed extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.white,
-      // child: Responsive(
-      //   key: const Key('Newsfeed'),
-      //   mobile: Mobile(),
-      //   tablet: Tablet(),
-      //   desktop: Desktop(),
-      // ),
+      child: Responsive(
+        key: const Key('Newsfeed'),
+        mobile: NewsfeedMobile(),
+        tablet: NewsfeedTablet(),
+        desktop: NewsfeedDesktop(),
+      ),
     );
   }
 }

@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application/components/menu.dart';
+import 'package:flutter_application/components/transaction.dart';
 import '../constants.dart';
 import '../helper/responsive.dart';
 import '../screens/desktop.dart';
 import '../screens/mobile.dart';
 import '../screens/tablet.dart';
 
-class Setting extends StatelessWidget {
-  const Setting({Key? key}) : super(key: key);
+class TransactionPage extends StatelessWidget {
+  const TransactionPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +26,7 @@ class Setting extends StatelessWidget {
               child: Container(
                 color: Colors.white,
                 child: Text(
-                  'Setting',
+                  'Transaction',
                   style: TextStyle(
                     fontSize: Responsive.isDesktop(context) ? 50 : 20,
                   ),
@@ -33,16 +34,8 @@ class Setting extends StatelessWidget {
               ),
             ),
             Expanded(
-              flex: 2,
-              child: Container(
-                color: Colors.white,
-                child: Text(
-                  'Help',
-                  style: TextStyle(
-                    fontSize: Responsive.isDesktop(context) ? 50 : 20,
-                  ),
-                ),
-              ),
+              flex: 3,
+              child: Transactions(),
             ),
           ],
         ),

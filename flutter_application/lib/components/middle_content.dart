@@ -102,12 +102,11 @@ class MiddleContent extends StatelessWidget {
                           ),
                         ),
                         Flexible(
-                          flex: 1,
+                          flex: 2,
                           child: Container(
                             child: RaisedGradientButton(
-                                width: screenWidth < 650
-                                    ? screenWidth * 0.2
-                                    : 100.0,
+                                width:
+                                    screenWidth < 650 ? screenWidth * 0.2 : 200,
                                 key: Key('button'),
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
