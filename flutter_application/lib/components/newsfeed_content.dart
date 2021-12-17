@@ -1,12 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application/components/balance.dart';
-import 'package:flutter_application/components/download.dart';
-import 'package:flutter_application/components/help.dart';
-import 'package:flutter_application/components/last_pay.dart';
-import 'package:flutter_application/components/gradient_button.dart';
-import 'package:flutter_application/components/post.dart';
+
+import 'package:flutter_application/components/post_list.dart';
 import 'package:flutter_application/components/send.dart';
-import 'package:flutter_application/helper/responsive.dart';
 
 class NewsfeedContent extends StatelessWidget {
   @override
@@ -24,7 +19,7 @@ class NewsfeedContent extends StatelessWidget {
         child: ListView.builder(
           itemBuilder: (BuildContext context, int index) {
             return Column(children: [
-              Post(),
+              PostList(),
             ]);
           },
           itemCount: 1,
