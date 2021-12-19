@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_application/components/post_list.dart';
-import 'package:flutter_application/components/send.dart';
 
 class NewsfeedContent extends StatelessWidget {
   @override

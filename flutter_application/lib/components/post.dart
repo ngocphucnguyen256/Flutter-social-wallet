@@ -5,17 +5,16 @@ class Post extends StatelessWidget {
   final fontSize = 15.0;
   final String account;
   final String postContent;
+  final String comment;
 
   const Post({
     required this.account,
     required this.postContent,
+    required this.comment,
   });
 
   @override
   Widget build(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
-    final screenHeight = MediaQuery.of(context).size.height;
-
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Container(
@@ -146,37 +145,42 @@ class Post extends StatelessWidget {
                   ],
                 ),
               ),
-
+              // comment
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
-                    Row(
-                      children: <Widget>[
-                        CircleAvatar(
-                          radius: 20.0,
-                          backgroundImage: AssetImage('images/avatar.png'),
-                        ),
-                        SizedBox(width: 10.0),
-                        Text(
-                          'Bug loi mat',
-                          style: TextStyle(
-                            fontSize: fontSize,
-                            fontWeight: FontWeight.bold,
+                    Expanded(
+                      flex: 3,
+                      child: Row(
+                        children: <Widget>[
+                          CircleAvatar(
+                            radius: 20.0,
+                            backgroundImage: AssetImage('images/avatar.png'),
                           ),
-                        ),
-                      ],
+                          SizedBox(width: 10.0),
+                          Text(
+                            'Bug loi mat',
+                            style: TextStyle(
+                              fontSize: fontSize,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
-                    Container(
+                    Expanded(
+                      flex: 6,
                       child: Text(
-                        'mot con vit xoe ra hai con than lan con',
+                        comment,
                         style: TextStyle(
                           fontSize: fontSize,
                         ),
                       ),
                     ),
-                    Container(
+                    Expanded(
+                      flex: 1,
                       child: Icon(
                         Icons.edit,
                         color: Colors.grey,
@@ -197,23 +201,29 @@ class Post extends StatelessWidget {
                         radius: 20.0,
                         backgroundImage: AssetImage('images/avatar.png'),
                       ),
-                      Container(
-                        child: TextFormField(
-                          expands: true,
-                          maxLines: null,
-                          minLines: null,
-                          decoration: InputDecoration(
-                            constraints: BoxConstraints(
-                                maxWidth: screenWidth * 0.4,
-                                maxHeight: screenHeight * .5),
-                            hintText: 'Viết bình luận...',
-                            hintStyle: TextStyle(
-                              fontSize: fontSize,
+                      SizedBox(width: 10.0),
+                      Flexible(
+                        child: Container(
+                          child: TextFormField(
+                            expands: true,
+                            maxLines: null,
+                            minLines: null,
+                            decoration: InputDecoration(
+                              constraints: BoxConstraints(maxHeight: 50),
+                              hintText: 'Viết bình luận...',
+                              focusedBorder: OutlineInputBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(5.0)),
+                                  borderSide: BorderSide(color: Colors.grey)),
+                              hintStyle: TextStyle(
+                                fontSize: fontSize,
+                              ),
+                              border: InputBorder.none,
                             ),
-                            border: InputBorder.none,
                           ),
                         ),
                       ),
+                      SizedBox(width: 10.0),
                       Container(
                         child: Icon(
                           Icons.send,

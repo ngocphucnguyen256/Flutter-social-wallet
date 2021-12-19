@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application/components/menu.dart';
 import 'package:flutter_application/components/newsfeed_content.dart';
-import 'package:flutter_application/components/transaction.dart';
+import 'package:flutter_application/components/newsfeed_side.dart';
 import '../constants.dart';
 
 class NewsfeedDesktop extends StatefulWidget {
@@ -28,8 +28,8 @@ class _NewsfeedDesktopState extends State<NewsfeedDesktop> {
               child: NewsfeedContent(),
             ),
             Expanded(
-              flex: 3,
-              child: Transactions(),
+              flex: 2,
+              child: NewsfeedSide(),
             ),
           ],
         ),

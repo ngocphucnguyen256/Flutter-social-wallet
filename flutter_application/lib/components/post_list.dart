@@ -1,5 +1,6 @@
 //list of post
 import 'package:flutter/material.dart';
+import 'create_post.dart';
 import 'post.dart';
 
 class PostList extends StatelessWidget {
@@ -14,6 +15,11 @@ class PostList extends StatelessWidget {
     'package:flutter_application/components/gradient_button.dart',
     'phap su trung hoa'
   ];
+  final List<String> comment = <String>[
+    'day la comment',
+    'spam ahihi',
+    'spam ahihi'
+  ];
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
@@ -21,16 +27,21 @@ class PostList extends StatelessWidget {
 
     return Padding(
       padding: const EdgeInsets.all(8.0),
-      child: ListView.builder(
-          shrinkWrap: true,
-          padding: const EdgeInsets.all(8),
-          itemCount: account.length,
-          itemBuilder: (BuildContext context, int index) {
-            return Post(
-              account: account[index],
-              postContent: postContent[index],
-            );
-          }),
+      child: Column(
+        children: [
+          CreatePost(),
+          ListView.builder(
+              shrinkWrap: true,
+              itemCount: account.length,
+              itemBuilder: (BuildContext context, int index) {
+                return Post(
+                  account: account[index],
+                  postContent: postContent[index],
+                  comment: comment[index],
+                );
+              }),
+        ],
+      ),
     );
   }
 }
