@@ -3,14 +3,17 @@ import '../constants.dart';
 
 class Post extends StatelessWidget {
   final fontSize = 15.0;
+  final iconSize = 20.0;
   final String account;
   final String postContent;
   final String comment;
+  final List<String>? images;
 
   const Post({
     required this.account,
     required this.postContent,
     required this.comment,
+    this.images = const [],
   });
 
   @override
@@ -59,7 +62,7 @@ class Post extends StatelessWidget {
                               Icon(
                                 Icons.public,
                                 color: Colors.grey,
-                                size: fontSize,
+                                size: iconSize,
                               ),
                             ])
                           ],
@@ -69,6 +72,7 @@ class Post extends StatelessWidget {
                   ],
                 ),
               ),
+              //content
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Text(
@@ -78,6 +82,26 @@ class Post extends StatelessWidget {
                   ),
                 ),
               ),
+              //images
+              images!.length > 0
+                  ? Container(
+                      height: 200.0,
+                      child: ListView.builder(
+                        scrollDirection: Axis.horizontal,
+                        itemCount: images!.length,
+                        itemBuilder: (context, index) {
+                          return Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Container(
+                              height: 200.0,
+                              width: 200.0,
+                              child: Image.network(images![index]),
+                            ),
+                          );
+                        },
+                      ),
+                    )
+                  : Container(),
               // like,comment
               Padding(
                 padding: const EdgeInsets.all(8.0),
@@ -89,7 +113,7 @@ class Post extends StatelessWidget {
                         Icon(
                           Icons.favorite,
                           color: Colors.grey,
-                          size: fontSize,
+                          size: iconSize,
                         ),
                         SizedBox(width: 5.0),
                         Text(
@@ -106,7 +130,7 @@ class Post extends StatelessWidget {
                         Icon(
                           Icons.arrow_upward_sharp,
                           color: Colors.grey,
-                          size: fontSize,
+                          size: iconSize,
                         ),
                         SizedBox(width: 5.0),
                         Text(
@@ -123,7 +147,7 @@ class Post extends StatelessWidget {
                         Icon(
                           Icons.comment,
                           color: Colors.grey,
-                          size: fontSize,
+                          size: iconSize,
                         ),
                         SizedBox(width: 5.0),
                         Text(
@@ -139,7 +163,7 @@ class Post extends StatelessWidget {
                       child: Icon(
                         Icons.share,
                         color: Colors.grey,
-                        size: fontSize,
+                        size: iconSize,
                       ),
                     ),
                   ],
@@ -184,7 +208,7 @@ class Post extends StatelessWidget {
                       child: Icon(
                         Icons.edit,
                         color: Colors.grey,
-                        size: fontSize,
+                        size: iconSize,
                       ),
                     ),
                   ],
@@ -228,7 +252,7 @@ class Post extends StatelessWidget {
                         child: Icon(
                           Icons.send,
                           color: Colors.grey,
-                          size: fontSize,
+                          size: iconSize,
                         ),
                       ),
                     ],

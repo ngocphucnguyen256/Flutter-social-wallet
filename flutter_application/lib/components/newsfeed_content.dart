@@ -9,7 +9,7 @@ class NewsfeedContent extends StatelessWidget {
     final screenWidth = MediaQuery.of(context).size.width;
 
     return Padding(
-      padding: const EdgeInsets.only(bottom: 8.0, right: 18.0),
+      padding: const EdgeInsets.only(top: 8.0, right: 8.0, bottom: 8.0),
       child: Container(
           child: Scrollbar(
         isAlwaysShown: false,
