@@ -59,8 +59,6 @@ class _LoginState extends State<Login> {
             ),
             SizedBox(height: 25.0),
             // buildForm(context, viewModel),
-            buildForm(context),
-            buildForm(context),
             SizedBox(height: 10.0),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,

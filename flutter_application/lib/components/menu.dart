@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application/model/navigation_item.dart';
+import 'package:flutter_application/models/navigation_item.dart';
 import 'package:flutter_application/provider/navigation_provider.dart';
 import 'package:provider/provider.dart';
 import '../constants.dart';

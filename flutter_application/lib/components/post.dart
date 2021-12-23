@@ -102,7 +102,7 @@ class Post extends StatelessWidget {
                       ),
                     )
                   : Container(),
-              // like,comment
+              // like
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Row(
@@ -172,11 +172,9 @@ class Post extends StatelessWidget {
               // comment
               Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                child: Column(
                   children: <Widget>[
-                    Expanded(
-                      flex: 3,
+                    Container(
                       child: Row(
                         children: <Widget>[
                           CircleAvatar(
@@ -194,23 +192,22 @@ class Post extends StatelessWidget {
                         ],
                       ),
                     ),
-                    Expanded(
-                      flex: 6,
-                      child: Text(
-                        comment,
-                        style: TextStyle(
-                          fontSize: fontSize,
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      flex: 1,
-                      child: Icon(
-                        Icons.edit,
-                        color: Colors.grey,
-                        size: iconSize,
-                      ),
-                    ),
+                    SizedBox(height: 5.0),
+                    Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            comment,
+                            style: TextStyle(
+                              fontSize: fontSize,
+                            ),
+                          ),
+                          Icon(
+                            Icons.edit,
+                            color: Colors.grey,
+                            size: iconSize,
+                          ),
+                        ]),
                   ],
                 ),
               ),
