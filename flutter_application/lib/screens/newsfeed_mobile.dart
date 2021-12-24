@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application/components/menu.dart';
 import 'package:flutter_application/components/middle_content.dart';
 import 'package:flutter_application/components/newsfeed_content.dart';
+import 'package:flutter_application/screens/newsfeed_tab_video.dart';
 import '../constants.dart';
 
 class NewsfeedMobile extends StatefulWidget {
@@ -12,7 +13,14 @@ class NewsfeedMobile extends StatefulWidget {
 }
 
 class _NewsfeedMobileState extends State<NewsfeedMobile> {
-  int _selectedDestination = 0;
+  int _selectedIndex = 0;
+
+  static List<Widget> _widgetOptions = <Widget>[
+    NewsfeedContent(),
+    NewsfeedTabVideo(),
+    Text('Groups'),
+    Text('Gaming'),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -23,6 +31,33 @@ class _NewsfeedMobileState extends State<NewsfeedMobile> {
           title: Text("Dak"),
           backgroundColor: bgColor,
         ),
+        bottomNavigationBar: BottomNavigationBar(
+          items: const <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              label: 'Home',
+              backgroundColor: bgColor,
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.video_library),
+              label: 'Videos',
+              backgroundColor: subBgColor,
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.group_outlined),
+              label: 'Groups',
+              backgroundColor: Colors.purple,
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.games),
+              label: 'Gaming',
+              backgroundColor: Colors.pink,
+            ),
+          ],
+          currentIndex: _selectedIndex,
+          selectedItemColor: Colors.blue,
+          onTap: _onItemTapped,
+        ),
         drawer: Drawer(
           child: Menu(),
         ),
@@ -31,12 +66,8 @@ class _NewsfeedMobileState extends State<NewsfeedMobile> {
           child: Row(
             children: <Widget>[
               Expanded(
-                child: NewsfeedContent(),
+                child: _widgetOptions.elementAt(_selectedIndex),
               ),
-              // Expanded(
-              //   flex: 2,
-              //   child: Transactions(),
-              // ),
             ],
           ),
         ),
@@ -44,9 +75,9 @@ class _NewsfeedMobileState extends State<NewsfeedMobile> {
     );
   }
 
-  void selectDestination(int index) {
+  void _onItemTapped(int index) {
     setState(() {
-      _selectedDestination = index;
+      _selectedIndex = index;
     });
   }
 }
