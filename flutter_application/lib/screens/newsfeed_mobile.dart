@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application/components/menu.dart';
 import 'package:flutter_application/components/middle_content.dart';
+import 'package:flutter_application/components/newsfeed_content.dart';
 import '../constants.dart';
 
 class NewsfeedMobile extends StatefulWidget {
@@ -30,7 +31,7 @@ class _NewsfeedMobileState extends State<NewsfeedMobile> {
           child: Row(
             children: <Widget>[
               Expanded(
-                child: MiddleContent(),
+                child: NewsfeedContent(),
               ),
               // Expanded(
               //   flex: 2,

@@ -6,7 +6,7 @@ import 'package:flutter_application/pages/newsfeed.dart';
 import 'package:flutter_application/pages/setting.dart';
 import 'package:flutter_application/pages/transaction_page.dart';
 import 'package:provider/provider.dart';
-import './model/navigation_item.dart';
+import './models/navigation_item.dart';
 import './provider/navigation_provider.dart';
 import './pages/dash_board.dart';
 

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application/components/menu.dart';
-import 'package:flutter_application/components/middle_content.dart';
-import 'package:flutter_application/components/transaction.dart';
+import 'package:flutter_application/components/newsfeed_content.dart';
+import 'package:flutter_application/components/newsfeed_side.dart';
 
 import '../constants.dart';
 
@@ -33,11 +33,11 @@ class _NewsfeedTabletState extends State<NewsfeedTablet> {
             children: <Widget>[
               Expanded(
                 flex: 7,
-                child: MiddleContent(),
+                child: NewsfeedContent(),
               ),
               Expanded(
                 flex: 3,
-                child: Transactions(),
+                child: NewsfeedSide(),
               ),
             ],
           ),

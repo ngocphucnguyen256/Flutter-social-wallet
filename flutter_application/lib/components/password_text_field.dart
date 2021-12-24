@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_icons/flutter_icons.dart';
 import 'package:flutter_application/components/custom_card.dart';
+import 'package:flutter_application/constants.dart';
 
 class PasswordFormBuilder extends StatefulWidget {
   final String? initialValue;
@@ -92,6 +92,7 @@ class _PasswordFormBuilderState extends State<PasswordFormBuilder> {
                     }
                   },
                   decoration: InputDecoration(
+                    constraints: BoxConstraints(maxWidth: 500),
                     prefixIcon: Icon(
                       widget.prefix,
                       size: 15.0,
@@ -101,15 +102,15 @@ class _PasswordFormBuilderState extends State<PasswordFormBuilder> {
                         setState(() => obscureText = !obscureText);
                       },
                       child: Icon(
-                        obscureText ? widget.suffix : Feather.eye_off,
+                        obscureText ? widget.suffix : Icons.visibility,
                         size: 15.0,
                       ),
                     ),
-                    fillColor: Colors.white,
+                    fillColor: lightBgColor,
                     filled: true,
                     hintText: widget.hintText,
                     hintStyle: TextStyle(
-                      color: Colors.grey[400],
+                      color: textColor,
                     ),
                     contentPadding: EdgeInsets.symmetric(horizontal: 20.0),
                     border: border(context),
@@ -146,7 +147,7 @@ class _PasswordFormBuilderState extends State<PasswordFormBuilder> {
         Radius.circular(30.0),
       ),
       borderSide: BorderSide(
-        color: Colors.white,
+        color: lightBgColor,
         width: 0.0,
       ),
     );
@@ -158,7 +159,7 @@ class _PasswordFormBuilderState extends State<PasswordFormBuilder> {
         Radius.circular(30.0),
       ),
       borderSide: BorderSide(
-        color: Theme.of(context).accentColor,
+        color: textColor,
         width: 1.0,
       ),
     );
