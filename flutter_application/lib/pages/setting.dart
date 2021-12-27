@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application/components/gallery_example.dart';
 import 'package:flutter_application/components/menu.dart';
+import 'package:photo_view/photo_view.dart';
 import '../constants.dart';
 import '../helper/responsive.dart';
 import '../screens/desktop.dart';
@@ -21,27 +23,10 @@ class Setting extends StatelessWidget {
               child: Container(margin: EdgeInsets.all(18), child: Menu()),
             ),
             Expanded(
-              flex: 6,
+              flex: 8,
               child: Container(
-                color: Colors.white,
-                child: Text(
-                  'Setting',
-                  style: TextStyle(
-                    fontSize: Responsive.isDesktop(context) ? 50 : 20,
-                  ),
-                ),
-              ),
-            ),
-            Expanded(
-              flex: 2,
-              child: Container(
-                color: Colors.white,
-                child: Text(
-                  'Help',
-                  style: TextStyle(
-                    fontSize: Responsive.isDesktop(context) ? 50 : 20,
-                  ),
-                ),
+                color: bgColor,
+                child: GalleryExample(),
               ),
             ),
           ],

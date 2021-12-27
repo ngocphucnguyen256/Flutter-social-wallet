@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application/components/iframe_html.dart';
 import '../constants.dart';
 
 class Post extends StatelessWidget {
@@ -8,12 +9,14 @@ class Post extends StatelessWidget {
   final String postContent;
   final String comment;
   final List<String>? images;
+  final List<String>? videos;
 
   const Post({
     required this.account,
     required this.postContent,
     required this.comment,
     this.images = const [],
+    this.videos = const [],
   });
 
   @override
@@ -75,28 +78,60 @@ class Post extends StatelessWidget {
               //content
               Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: Text(
-                  postContent,
-                  style: TextStyle(
-                    fontSize: fontSize,
+                child: Container(
+                  width: double.infinity,
+                  child: Text(
+                    postContent,
+                    textAlign: TextAlign.justify,
+                    style: TextStyle(
+                      fontSize: fontSize,
+                    ),
                   ),
                 ),
               ),
-              //images
-              images!.length > 0
+              //video
+              videos!.isNotEmpty
                   ? Container(
-                      height: 200.0,
+                      alignment: Alignment.center,
+                      width: double.infinity,
+                      constraints: BoxConstraints(
+                        maxHeight: 300.0,
+                      ),
                       child: ListView.builder(
-                        scrollDirection: Axis.horizontal,
+                        scrollDirection: Axis.vertical,
+                        itemCount: videos!.length,
+                        itemBuilder: (context, index) {
+                          return Container(
+                            padding: const EdgeInsets.all(8.0),
+                            width: double.infinity,
+                            alignment: Alignment.center,
+                            child: Container(
+                                constraints: BoxConstraints(
+                                  maxWidth: 600.0,
+                                ),
+                                child: IframeHtml(url: videos![index])),
+                          );
+                        },
+                      ),
+                    )
+                  : Container(),
+              //images
+              images!.isNotEmpty
+                  ? Container(
+                      alignment: Alignment.center,
+                      width: double.infinity,
+                      constraints: BoxConstraints(
+                        maxHeight: 300.0,
+                      ),
+                      child: ListView.builder(
+                        scrollDirection: Axis.vertical,
                         itemCount: images!.length,
                         itemBuilder: (context, index) {
-                          return Padding(
+                          return Container(
                             padding: const EdgeInsets.all(8.0),
-                            child: Container(
-                              height: 200.0,
-                              width: 200.0,
-                              child: Image.network(images![index]),
-                            ),
+                            width: double.infinity,
+                            alignment: Alignment.center,
+                            child: Image.network(images![index]),
                           );
                         },
                       ),
