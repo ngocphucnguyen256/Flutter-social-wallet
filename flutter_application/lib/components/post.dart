@@ -8,15 +8,17 @@ class Post extends StatelessWidget {
   final String account;
   final String postContent;
   final String comment;
+  final String video;
   final List<String>? images;
-  final List<String>? videos;
+  // final List<String>? videos;
 
   const Post({
     required this.account,
     required this.postContent,
     required this.comment,
     this.images = const [],
-    this.videos = const [],
+    // this.videos = const [],
+    required this.video,
   });
 
   @override
@@ -89,53 +91,65 @@ class Post extends StatelessWidget {
                   ),
                 ),
               ),
+              //videos >1
+              // videos!.isNotEmpty
+              //     ? Container(
+              //         alignment: Alignment.center,
+              //         width: double.infinity,
+              //         constraints: BoxConstraints(
+              //           maxHeight: 500.0,
+              //         ),
+              //         child: Container(
+              //           padding: const EdgeInsets.all(8.0),
+              //           width: double.infinity,
+              //           height: double.infinity,
+              //           alignment: Alignment.center,
+              //           child: Container(
+              //               constraints: BoxConstraints(
+              //                 maxWidth: 600.0,
+              //               ),
+              //               child: IframeHtml(url: videos![0])),
+              //         ))
+              //     : Container(),
+
               //video
-              videos!.isNotEmpty
+
+              video != ""
                   ? Container(
                       alignment: Alignment.center,
                       width: double.infinity,
                       constraints: BoxConstraints(
-                        maxHeight: 300.0,
+                        maxHeight: 500.0,
                       ),
-                      child: ListView.builder(
-                        scrollDirection: Axis.vertical,
-                        itemCount: videos!.length,
-                        itemBuilder: (context, index) {
-                          return Container(
-                            padding: const EdgeInsets.all(8.0),
-                            width: double.infinity,
-                            alignment: Alignment.center,
-                            child: Container(
-                                constraints: BoxConstraints(
-                                  maxWidth: 600.0,
-                                ),
-                                child: IframeHtml(url: videos![index])),
-                          );
-                        },
-                      ),
-                    )
-                  : Container(),
+                      child: Container(
+                          padding: const EdgeInsets.all(8.0),
+                          width: double.infinity,
+                          height: double.infinity,
+                          alignment: Alignment.center,
+                          child: Container(
+                            constraints: BoxConstraints(
+                              maxWidth: 600.0,
+                            ),
+                            child: IframeHtml(url: video),
+                          )))
+                  : SizedBox(
+                      height: 0.0,
+                    ),
+
               //images
               images!.isNotEmpty
                   ? Container(
                       alignment: Alignment.center,
                       width: double.infinity,
                       constraints: BoxConstraints(
-                        maxHeight: 300.0,
+                        maxHeight: 500.0,
                       ),
-                      child: ListView.builder(
-                        scrollDirection: Axis.vertical,
-                        itemCount: images!.length,
-                        itemBuilder: (context, index) {
-                          return Container(
-                            padding: const EdgeInsets.all(8.0),
-                            width: double.infinity,
-                            alignment: Alignment.center,
-                            child: Image.network(images![index]),
-                          );
-                        },
-                      ),
-                    )
+                      child: Container(
+                        padding: const EdgeInsets.all(8.0),
+                        width: double.infinity,
+                        alignment: Alignment.center,
+                        child: Image.network(images![0]),
+                      ))
                   : Container(),
               // like
               Padding(

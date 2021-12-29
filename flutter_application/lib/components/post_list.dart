@@ -35,6 +35,8 @@ class PostList extends StatelessWidget {
   ];
   final List<String> videos = <String>[
     'https://www.youtube.com/embed/JiX996fEBig',
+    'https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Fvietcetera%2Fvideos%2F655229592347424%2F&show_text=false&width=476&t=0',
+    'https://twitter.com/TwitterDev?ref_src=twsrc%5Etfw',
   ];
   List postDataList = [
     {
@@ -108,7 +110,7 @@ class PostList extends StatelessWidget {
                     postContent: postContent[index],
                     comment: comment[index],
                     images: images,
-                    videos: videos);
+                    video: index < videos.length ? videos[index] : "");
               }),
         ],
       ),
