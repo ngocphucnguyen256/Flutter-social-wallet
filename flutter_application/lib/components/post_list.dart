@@ -5,6 +5,12 @@ import 'post.dart';
 
 class PostList extends StatelessWidget {
   final fontSize = 15.0;
+  final String? page;
+
+  PostList({
+    this.page = "home",
+  });
+
   final List<String> account = <String>[
     'Thang em sinh nam 96',
     'Bug loi mat',
@@ -94,6 +100,7 @@ class PostList extends StatelessWidget {
       ]
     },
   ];
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -105,11 +112,17 @@ class PostList extends StatelessWidget {
               shrinkWrap: true,
               itemCount: account.length,
               itemBuilder: (BuildContext context, int index) {
+                if (index >= videos.length || videos[index] == '') {
+                  return SizedBox(
+                    height: 0,
+                  );
+                }
+
                 return Post(
                     account: account[index],
                     postContent: postContent[index],
                     comment: comment[index],
-                    images: images,
+                    images: page == "video" ? <String>[] : images,
                     video: index < videos.length ? videos[index] : "");
               }),
         ],

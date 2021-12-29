@@ -5,9 +5,6 @@ import 'package:flutter_application/components/post_list.dart';
 class NewsfeedTabVideo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final screenHeight = MediaQuery.of(context).size.height;
-    final screenWidth = MediaQuery.of(context).size.width;
-
     return Padding(
       padding: const EdgeInsets.only(top: 8.0, right: 8.0, bottom: 8.0),
       child: Container(
@@ -18,7 +15,7 @@ class NewsfeedTabVideo extends StatelessWidget {
         child: ListView.builder(
           itemBuilder: (BuildContext context, int index) {
             return Column(children: [
-              PostList(),
+              PostList(page: "video"),
             ]);
           },
           itemCount: 1,
