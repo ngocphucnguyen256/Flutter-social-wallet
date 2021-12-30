@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application/components/elevated_button_nav.dart';
 import 'package:flutter_application/components/iframe_html.dart';
 import '../constants.dart';
+import '../pages/profile.dart';
 
 class Post extends StatelessWidget {
   final fontSize = 15.0;
@@ -40,9 +42,18 @@ class Post extends StatelessWidget {
                   children: <Widget>[
                     Row(
                       children: <Widget>[
-                        CircleAvatar(
-                          radius: 20.0,
-                          backgroundImage: AssetImage('images/avatar.png'),
+                        ElevatedButtonNav(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const Profile()),
+                            );
+                          },
+                          child: CircleAvatar(
+                            radius: 20.0,
+                            backgroundImage: AssetImage('images/avatar.png'),
+                          ),
                         ),
                         SizedBox(width: 10.0),
                         Column(
@@ -227,7 +238,7 @@ class Post extends StatelessWidget {
                       child: Row(
                         children: <Widget>[
                           CircleAvatar(
-                            radius: 20.0,
+                            radius: 15.0,
                             backgroundImage: AssetImage('images/avatar.png'),
                           ),
                           SizedBox(width: 10.0),
@@ -268,7 +279,7 @@ class Post extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
                       CircleAvatar(
-                        radius: 20.0,
+                        radius: 15.0,
                         backgroundImage: AssetImage('images/avatar.png'),
                       ),
                       SizedBox(width: 10.0),

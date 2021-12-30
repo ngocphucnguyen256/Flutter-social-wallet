@@ -41,7 +41,7 @@ class _NewsfeedMobileState extends State<NewsfeedMobile> {
             BottomNavigationBarItem(
               icon: Icon(Icons.video_library),
               label: 'Videos',
-              backgroundColor: subBgColor,
+              backgroundColor: Colors.yellow,
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.group_outlined),
@@ -61,15 +61,12 @@ class _NewsfeedMobileState extends State<NewsfeedMobile> {
         drawer: Drawer(
           child: Menu(),
         ),
-        body: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Row(
-            children: <Widget>[
-              Expanded(
-                child: _widgetOptions.elementAt(_selectedIndex),
-              ),
-            ],
-          ),
+        body: Row(
+          children: <Widget>[
+            Expanded(
+              child: _widgetOptions.elementAt(_selectedIndex),
+            ),
+          ],
         ),
       ),
     );

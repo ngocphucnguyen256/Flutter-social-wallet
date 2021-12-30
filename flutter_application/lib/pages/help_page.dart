@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application/components/iframe_html.dart';
 import 'package:flutter_application/components/menu.dart';
+import 'package:flutter_application/utils/test.dart';
 
 class HelpPage extends StatelessWidget {
   const HelpPage({Key? key}) : super(key: key);
@@ -22,8 +23,7 @@ class HelpPage extends StatelessWidget {
               flex: 8,
               child: Container(
                 color: Colors.white,
-                child: IframeHtml(
-                    url: "https://www.youtube.com/embed/JiX996fEBig"),
+                child: MyTabbedPage(),
               ),
             ),
           ],
