@@ -1,6 +1,7 @@
 //profile page
 import 'package:flutter/material.dart';
 import 'package:flutter_application/components/menu.dart';
+import 'package:flutter_application/components/post_list.dart';
 import '../constants.dart';
 
 class Profile extends StatelessWidget {
@@ -11,6 +12,7 @@ class Profile extends StatelessWidget {
     return Scaffold(
       backgroundColor: bgColor,
       appBar: AppBar(
+        backgroundColor: bgColor,
         title: const Text("Profile"),
       ),
       body: Container(
@@ -43,6 +45,35 @@ class Profile extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
+                  DefaultTabController(
+                      length: 3,
+                      child: Column(children: [
+                        TabBar(
+                          labelColor: Colors.white,
+                          unselectedLabelColor: Colors.grey,
+                          indicatorColor: Colors.blue,
+                          tabs: [
+                            Tab(
+                              text: "Posts",
+                            ),
+                            Tab(
+                              text: "Media",
+                            ),
+                            Tab(
+                              text: "Stats",
+                            ),
+                          ],
+                        ),
+                        // TabBarView(
+                        //   children: [
+                        //     Container(
+                        //         width: double.infinity, child: PostList()),
+                        //     Container(
+                        //         width: double.infinity, child: PostList()),
+                        //     Container(width: double.infinity, child: PostList())
+                        //   ],
+                        // ),
+                      ])),
                 ],
               ),
             ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application/components/custom_app_bar.dart';
 import 'package:flutter_application/components/menu.dart';
 import 'package:flutter_application/components/middle_content.dart';
 import 'package:flutter_application/components/newsfeed_content.dart';
@@ -14,22 +15,46 @@ class NewsfeedMobile extends StatefulWidget {
 
 class _NewsfeedMobileState extends State<NewsfeedMobile> {
   int _selectedIndex = 0;
+  int _selectedIndexTop = 0;
+  final List<IconData> _icons = const [
+    Icons.facebook,
+    Icons.task_alt_outlined,
+    Icons.brightness_1_outlined,
+    Icons.video_collection_outlined
+  ];
 
   static List<Widget> _widgetOptions = <Widget>[
     NewsfeedContent(),
     NewsfeedTabVideo(),
     Text('Groups'),
     Text('Gaming'),
+    Text('Fb'),
+    Text('TikTok'),
+    Text('Twitter'),
+    Text('Youtube'),
+  ];
+
+  static List<Widget> _widgetOptionsTop = <Widget>[
+    Text('Fb'),
+    Text('TikTok'),
+    Text('Twitter'),
+    Text('Youtube'),
   ];
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    final Size screenSize = MediaQuery.of(context).size;
+    return DefaultTabController(
+      length: _widgetOptionsTop.length,
       child: Scaffold(
         backgroundColor: bgColor,
-        appBar: AppBar(
-          title: Text("Dak"),
-          backgroundColor: bgColor,
+        appBar: PreferredSize(
+          preferredSize: Size(screenSize.width, 100),
+          child: CustomAppBar(
+            icons: _icons,
+            selectedIndex: _selectedIndexTop,
+            onTap: _onItemTappedTop,
+          ),
         ),
         bottomNavigationBar: BottomNavigationBar(
           items: const <BottomNavigationBarItem>[
@@ -58,7 +83,7 @@ class _NewsfeedMobileState extends State<NewsfeedMobile> {
           selectedItemColor: Colors.blue,
           onTap: _onItemTapped,
         ),
-        drawer: Drawer(
+        endDrawer: Drawer(
           child: Menu(),
         ),
         body: Row(
@@ -75,6 +100,12 @@ class _NewsfeedMobileState extends State<NewsfeedMobile> {
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
+    });
+  }
+
+  void _onItemTappedTop(int index) {
+    setState(() {
+      _selectedIndexTop = index;
     });
   }
 }

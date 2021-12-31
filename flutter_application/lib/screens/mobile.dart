@@ -22,7 +22,7 @@ class _MobileState extends State<Mobile> {
           title: Text("Dak"),
           backgroundColor: bgColor,
         ),
-        drawer: Drawer(
+        endDrawer: Drawer(
           child: Menu(),
         ),
         body: Padding(

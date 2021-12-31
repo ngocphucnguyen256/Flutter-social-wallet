@@ -23,7 +23,9 @@ class HelpPage extends StatelessWidget {
               flex: 8,
               child: Container(
                 color: Colors.white,
-                child: MyTabbedPage(),
+                child: Text(
+                  "Help",
+                ),
               ),
             ),
           ],
