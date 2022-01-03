@@ -34,14 +34,6 @@ class _NewsfeedDesktopState extends State<NewsfeedDesktop> {
     return DefaultTabController(
       length: _widgetOptionsTop.length,
       child: Scaffold(
-        appBar: PreferredSize(
-          preferredSize: Size(screenSize.width, 100),
-          child: CustomAppBar(
-            icons: _icons,
-            selectedIndex: _selectedIndexTop,
-            onTap: _onItemTappedTop,
-          ),
-        ),
         body: Container(
           color: bgColor,
           child: Row(
@@ -50,7 +42,20 @@ class _NewsfeedDesktopState extends State<NewsfeedDesktop> {
                 flex: 2,
                 child: Container(margin: EdgeInsets.all(18), child: Menu()),
               ),
-              Expanded(flex: 6, child: NewsfeedContent()),
+              Expanded(
+                  flex: 6,
+                  child: Column(
+                    children: [
+                      Container(
+                        child: CustomAppBar(
+                          icons: _icons,
+                          selectedIndex: _selectedIndexTop,
+                          onTap: _onItemTappedTop,
+                        ),
+                      ),
+                      Flexible(child: NewsfeedContent())
+                    ],
+                  )),
               Expanded(
                 flex: 2,
                 child: NewsfeedSide(),
